@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('nasikotaks', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_nasi');
+            $table->string('slug');
+            $table->integer('harga_nasi');
+            $table->text('gambar');
+            $table->string('spesial');
+            $table->string('jumlah_porsi');
+            $table->string('ongkir');
+            $table->string('status');
+            $table->text('deskripsi');
+            $table->boolean('extra_minum');
+            $table->boolean('extra_sendok');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('nasikotaks');
+    }
+};
